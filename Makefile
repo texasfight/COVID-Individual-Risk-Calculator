@@ -6,4 +6,4 @@ run-backend:
 	-@export FLASK_ENV=app.py
 	-@set FLASK_ENV=app.py
 	cd backend && \
-		flask run
+		python3 -m flask run

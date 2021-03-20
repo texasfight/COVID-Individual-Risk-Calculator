@@ -91,8 +91,8 @@ def symptomPredictionModel(age, sex, smellTasteSymptom, coughSymptoms, severeFat
 # probable cases as updated appropriately with the DSHS
 # population projection updated with texas.gov
 def communityRisk():
-    df = pd.read_csv('us-counties.csv') # data collected from NYTimes github
-    hf = pd.read_csv('co-est2019-alldata.csv', encoding = "ISO-8859-1") # data collected from US census
+    df = pd.read_csv('data/us-counties.csv') # data collected from NYTimes github
+    hf = pd.read_csv('data/co-est2019-alldata.csv', encoding ="ISO-8859-1") # data collected from US census
     
    
     del df['date']

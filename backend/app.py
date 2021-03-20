@@ -7,22 +7,20 @@ import CovidAGE
 import json
 import pandas as pd
 
-df = pd.read_csv('us-counties.csv')  # data collected from NYTimes github
-hf = pd.read_csv('co-est2019-alldata.csv', encoding="ISO-8859-1")  # data collected from US census
+df = pd.read_csv('data/us-counties.csv')  # data collected from NYTimes github
+hf = pd.read_csv('data/co-est2019-alldata.csv', encoding="ISO-8859-1")  # data collected from US census
 df = df.sort_values(by=['county', 'state'])
 
 with open('question_jsons/symptom_prediction_model.json', 'r') as f:
     symptom_prediction_model_questions_json = json.load(f)
 with open('question_jsons/covid_age.json', 'r') as f:
     covid_age_questions_json = json.load(f)
-with open('state-county.json', 'r') as f:
+with open('data/state-county.json', 'r') as f:
     state_county_json = json.load(f)
 
-del df['date']
-del hf['SUMLEV']
-del hf['REGION']
-del hf['DIVISION']
-del hf['STATE']
+df = df.drop("date", axis=1)
+hf_drop_list = ['SUMLEV', 'REGION', 'DIVISION', 'STATE']
+hf = hf.drop(hf_drop_list, axis=1)
 
 age = 0
 gender = 'Male'
@@ -137,4 +135,4 @@ def covid_age_result():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")

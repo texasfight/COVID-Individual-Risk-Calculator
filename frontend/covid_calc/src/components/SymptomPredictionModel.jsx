@@ -13,7 +13,7 @@ class SymptomPredictionModel extends Component{
             covidRisk: 0.0
         };
 
-        fetch("http://localhost:5000/symptom_prediction_model_questions")
+        fetch("./symptom_prediction_model_questions")
         .then(
             (response) => {
                 return response.json();
@@ -53,7 +53,7 @@ class SymptomPredictionModel extends Component{
             body: JSON.stringify(this.state.values)
         }
 
-        fetch("http://localhost:5000/symptom_prediction_model_result", requestOptions)
+        fetch("./symptom_prediction_model_result", requestOptions)
         .then(
             (response) => {
                 return response.json();

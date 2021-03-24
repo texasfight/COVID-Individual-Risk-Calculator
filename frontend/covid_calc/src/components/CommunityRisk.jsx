@@ -15,7 +15,7 @@ class CommunityRisk extends Component{
             communityRisk : 0.0
         };
 
-        fetch("http://localhost:5000/state_county_list")
+        fetch("./state_county_list")
         .then(
             (response) => {
                 return response.json();
@@ -68,7 +68,7 @@ class CommunityRisk extends Component{
             body: JSON.stringify({"state" : this.state.currentState, "county" : this.state.currentCounty})
         }
         console.log(requestOptions.body)
-        fetch("http://localhost:5000/community_risk_result", requestOptions)
+        fetch("./community_risk_result", requestOptions)
         .then(
             (response) => {
                 return response.json();

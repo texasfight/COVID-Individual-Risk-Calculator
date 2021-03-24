@@ -25,9 +25,10 @@ hf = hf.drop(hf_drop_list, axis=1)
 age = 0
 gender = 'Male'
 
+
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return app.send_static_file('index.html')
 
 
 @app.route('/symptom_prediction_model_questions', methods=['GET'])

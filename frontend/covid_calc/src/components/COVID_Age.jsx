@@ -13,7 +13,7 @@ class COVID_Age extends Component{
             covidRisk: {}
         };
 
-        fetch("http://localhost:5000/covid_age_model_questions")
+        fetch("./covid_age_model_questions")
         .then(
             (response) => {
                 return response.json();
@@ -61,7 +61,7 @@ class COVID_Age extends Component{
             body: JSON.stringify(covidAgeParams)
         }
 
-        fetch("http://localhost:5000/covid_age_result", requestOptions)
+        fetch("./covid_age_result", requestOptions)
         .then(
             (response) => {
                 return response.json();
